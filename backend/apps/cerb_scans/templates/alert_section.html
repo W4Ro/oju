@@ -1,0 +1,41 @@
+{% load custom_filters%}
+
+<div style="margin-top: 30px;">
+    <h3 style="background-color: {{ alert_colors|get:alert_type }}; color: white; padding: 10px; border-radius: 5px;">
+        {{ alert_type_names|get:alert_type }}
+    </h3>
+
+    {% with entities=alerts|get:alert_type %}
+        {% for entity_id in entities.keys %}
+            {% with entity_data=entities|get:entity_id %}
+                {% if entity_data.platforms|length > 0 %}
+                    <div style="border-left: 4px solid {{ alert_colors|get:alert_type }}; padding-left: 15px; margin: 20px 0;">
+                        <h4 style="margin-bottom: 10px;">{{ entity_data.name }}</h4>
+                        
+                        <p style="margin-bottom: 8px;"><strong>Affected platforms:</strong></p>
+                        <ul style="margin-top: 5px;">
+                            {% for platform in entity_data.platforms %}
+                                <li style="margin-bottom: 5px;"><a href="{{ platform }}" style="color: #0066cc;">{{ platform }}</a></li>
+                            {% endfor %}
+                        </ul>
+                        
+                        {% if entity_data.points_focaux|length > 0 %}
+                            <p style="margin-top: 15px; margin-bottom: 8px;"><strong>Focal points:</strong></p>
+                            <ul style="list-style-type: none; padding-left: 0;">
+                                {% for point in entity_data.points_focaux %}
+                                    <li style="margin-bottom: 10px;">
+                                        <strong>{{ point.name }}</strong> -
+                                        <a href="mailto:{{ point.email }}" style="color: #0066cc;">{{ point.email }}</a>
+                                        {% if point.phone %} - {{ point.phone }}{% endif %}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <p style="margin-top: 15px; color: #777;">No focal point defined for this entity.</p>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        {% endfor %}
+    {% endwith %}
+</div>

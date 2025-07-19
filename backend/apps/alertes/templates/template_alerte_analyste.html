@@ -1,0 +1,23 @@
+{% block content %}
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+    <h2 style="color: #333;">Oju - {{alert_name}}</h2>
+    <p style="font-size: 16px; color: #555;"><strong>Impacted site:</strong> {{site_name}}</p>
+    <p style="font-size: 16px; color: #555;">An alert named {{alert_name}} has been triggered for the site mentioned above.</p>
+    <p style="font-size: 16px; color: #555;">Please proceed with the necessary checks as soon as possible.</p>
+   
+    {% if points_focaux %}
+        <p style="font-size: 16px; color: #555;">If needed, please contact:</p>
+        <ul style="list-style-type: none; padding-left: 0;">            
+            {% for point in points_focaux %}
+                <li style="margin-bottom: 10px;">
+                    <strong>{{ point.name }}</strong> - 
+                    <a href="mailto:{{ point.email }}" style="color: #0066cc;">{{ point.email }}</a> - 
+                    {{ point.phone }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p style="font-size: 16px; color: #555;">No focal point has been defined.</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% block content %}
+<div style="font-family: Arial, sans-serif; padding: 20px; border-radius: 5px;">
+    <div style="font-size: 18px; font-weight: bold; color: #721c24; margin-bottom: 15px;">
+        SSL Certificate Expired
+    </div>
+    <div style="font-size: 14px; color: #721c24;">
+        <p style="margin-bottom: 10px;">Hello,</p>
+        <p style="margin-bottom: 10px;">The SSL certificate for the site <strong>{{ site_url }}</strong> has errors: <strong>{{ details }}</strong>.</p>
+        <p style="margin-bottom: 10px;">We recommend taking the necessary steps to renew the certificate to avoid security issues.</p>
+        <p style="margin-bottom: 10px;">Best regards,</p>
+    </div>
+</div>
+{% endblock %}

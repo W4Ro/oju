@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oju Alert</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+        }
+        .alert-details {
+            margin-top: 20px;
+        }
+        .alert-details div {
+            margin-bottom: 10px;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Oju - {{alert_name}}</h2>
+        <p><strong>Impacted site:</strong> {{site_name}}</p>
+        <p>An alert named {{alert_name}} has been triggered for the site mentioned above.</p>
+        <p>Please proceed with the necessary checks as soon as possible.</p>
+        
+        {% if points_focaux %}
+            <p>If needed, please contact:</p>
+            <ul class="focal-points">            
+                {% for point in points_focaux %}
+                    <li><strong>{{ point.name }}</strong> - <a href="mailto:{{ point.email }}">{{ point.email }}</a> - {{ point.phone }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No focal point has been defined.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

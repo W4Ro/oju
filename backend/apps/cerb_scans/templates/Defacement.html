@@ -1,0 +1,19 @@
+{% block content %}
+<div style="font-family: Arial, sans-serif; padding: 20px; border-radius: 5px;">
+    <div style="font-size: 18px; font-weight: bold; color: #721c24; margin-bottom: 15px;">
+        Defacement Issue
+    </div>
+    <div style="font-size: 14px; color: #721c24;">
+        <p style="margin-bottom: 10px;">Hello,</p>
+        <p style="margin-bottom: 10px;">A defacement has been detected on the platform <strong>{{ site_url }}</strong>.</p>
+        <p style="margin-bottom: 10px;">Some suspicious modifications have been identified, including:</p>
+        <ul style="margin: 10px 0; padding-left: 20px;">
+            <li style="margin-bottom: 5px;">Changes in the main page content</li>
+            <li style="margin-bottom: 5px;">Addition of suspicious files</li>
+            <li style="margin-bottom: 5px;">Replacement of the official logo</li>
+        </ul>
+        <p style="margin-bottom: 10px;">We recommend performing an immediate check and restoring the site if necessary.</p>
+        <p style="margin-bottom: 10px;">Best regards,</p>
+    </div>
+</div>
+{% endblock %}

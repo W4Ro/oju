@@ -1,0 +1,23 @@
+{% block content %}
+<div style="font-family: Arial, sans-serif; padding: 20px; border-radius: 5px; background-color: #f6f6f6;">
+    <div style="font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #2e7d32;">
+        Issue Automatically Resolved
+    </div>
+    <div style="font-size: 14px; line-height: 1.5;">
+        <p style="margin-bottom: 10px;">Hello,</p>
+        <p style="margin-bottom: 10px;">We inform you that the following issue has been automatically resolved:</p>
+        
+        <div style="background-color: #ffffff; padding: 15px; border-radius: 5px; margin-bottom: 15px; border-left: 4px solid #2e7d32;">
+            <p style="margin: 5px 0;"><strong>Alert type:</strong> {{ alert_type_display }}</p>
+            <p style="margin: 5px 0;"><strong>Affected site:</strong> {{ site_url }}</p>
+            <p style="margin: 5px 0;"><strong>Detection date:</strong> {{ created_at }}</p>
+            <p style="margin: 5px 0;"><strong>Resolution date:</strong> {{ resolved_at }}</p>
+            <p style="margin: 5px 0;"><strong>Details:</strong> {{ details }}</p>
+        </div>
+        
+        <p style="margin-bottom: 10px;">The service has been restored and no further action is required.</p>
+        <p style="margin-bottom: 10px;">Best regards,</p>
+        <p style="margin-bottom: 10px;">The Oju Team</p>
+    </div>
+</div>
+{% endblock %}

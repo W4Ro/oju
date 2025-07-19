@@ -1,0 +1,13 @@
+{% block content %}
+<div style="font-family: Arial, sans-serif; padding: 20px; border-radius: 5px;">
+    <div style="font-size: 18px; font-weight: bold; margin-bottom: 15px;">
+        SSL Certificate Expiring Soon
+    </div>
+    <div style="font-size: 14px;">
+        <p style="margin-bottom: 10px;">Hello,</p>
+        <p style="margin-bottom: 10px;">The certificate for the platform <strong>{{ site_url }}</strong> will expire in <strong>{{ remaining_days }}</strong> days.</p>
+        <p style="margin-bottom: 10px;">We recommend renewing it as soon as possible to avoid any service interruption.</p>
+        <p style="margin-bottom: 10px;">Best regards,</p>
+    </div>
+</div>
+{% endblock %}

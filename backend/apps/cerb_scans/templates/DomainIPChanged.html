@@ -1,0 +1,15 @@
+{% block content %}
+<div style="font-family: Arial, sans-serif; padding: 20px; background: #ffffff; border-radius: 8px; max-width: 600px; margin: auto;">
+    <h2 style="color: #333; margin-bottom: 15px;">Oju: IP Address Change Detected</h2>
+    <p style="font-size: 16px; margin-bottom: 10px;">Hello,</p>
+    <p style="font-size: 16px; margin-bottom: 10px;">We have detected an IP address change for your domain. Please find the details below:</p>
+    
+    <ul style="list-style-type: none; padding: 10px; background: #ffffff; margin-bottom: 20px;">
+        <li style="margin-bottom: 5px;"><strong>Domain:</strong> <span>{{ domain }}</span></li>
+        <li style="margin-bottom: 5px;"><strong>Details:</strong> <span>{{ details }}</span></li>
+    </ul>
+    <p style="font-size: 16px; margin-bottom: 10px;">Please verify if this change is expected and update your configurations if necessary.</p>
+    <p style="font-size: 16px; margin-bottom: 10px;">We remain available to assist you if needed.</p>
+    <p style="font-size: 16px; margin-bottom: 10px;">Best regards,</p>
+</div>
+{% endblock %}

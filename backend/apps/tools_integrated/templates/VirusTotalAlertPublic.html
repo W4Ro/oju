@@ -1,0 +1,30 @@
+{% block content %}
+<div style="font-family: Arial, sans-serif; padding: 20px; border-radius: 5px;">
+    <div style="font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #d32f2f;">
+        Security Alert - Malicious Content Detected
+    </div>
+    <div style="font-size: 14px;">
+        <p style="margin-bottom: 10px;">Hello,</p>
+        <p style="margin-bottom: 10px;">Our security monitoring system has detected potentially malicious content on your site: <strong>{{ site_url }}</strong>.</p>
+        <p style="margin-bottom: 10px;">Antivirus services have identified suspicious elements that could compromise the security of your site and its visitors.</p>
+        <p style="margin-bottom: 10px;">We recommend you to:</p>
+        <ul style="margin-bottom: 15px;">
+            <li>Check if your site has been compromised or hacked</li>
+            <li>Look for any suspicious content or malicious code</li>
+            <li>Update all your content management systems and plugins</li>
+            <li>Strengthen your site's security measures</li>
+        </ul>
+        <p style="margin-bottom: 10px;">Our security team is available to help you resolve this issue.</p>
+        
+        {% if points_focaux %}
+            <p style="margin-top: 20px; margin-bottom: 10px;">For more information, please contact:</p>
+            <ul style="margin-bottom: 15px;">
+            {% for point in points_focaux %}
+                <li><strong>{{ point.name }}</strong> - <a href="mailto:{{ point.email }}">{{ point.email }}</a> {% if point.phone %}- {{ point.phone }}{% endif %}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        
+    </div>
+</div>
+{% endblock %}
